@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const CategoryPreview = () => {
   return (
     <>
@@ -7,12 +9,12 @@ const CategoryPreview = () => {
             <h2 className="text-2xl font-extrabold tracking-tight text-gray-900">
               Shop by Category
             </h2>
-            <a
-              href="#"
+            <Link
+              to="/allproducts"
               className="hidden text-sm font-semibold text-indigo-600 hover:text-indigo-500 sm:block"
             >
-            Browse all categories<span aria-hidden="true"> &rarr;</span>
-            </a>
+              Browse all categories<span aria-hidden="true"> &rarr;</span>
+            </Link>
           </div>
 
           <div className="mt-6 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:grid-rows-2 sm:gap-x-6 lg:gap-8">
@@ -29,10 +31,10 @@ const CategoryPreview = () => {
               <div className="p-6 flex items-end">
                 <div>
                   <h3 className="font-semibold text-white">
-                    <a href="#">
+                    <Link to="/allproducts">
                       <span className="absolute inset-0" />
                       New Arrivals
-                    </a>
+                    </Link>
                   </h3>
                   <p aria-hidden="true" className="mt-1 text-sm text-white">
                     Shop now
@@ -53,10 +55,10 @@ const CategoryPreview = () => {
               <div className="p-6 flex items-end sm:absolute sm:inset-0">
                 <div>
                   <h3 className="font-semibold text-white">
-                    <a href="#">
+                    <Link to="/allproducts">
                       <span className="absolute inset-0" />
                       Accessories
-                    </a>
+                    </Link>
                   </h3>
                   <p aria-hidden="true" className="mt-1 text-sm text-white">
                     Shop now
@@ -77,10 +79,10 @@ const CategoryPreview = () => {
               <div className="p-6 flex items-end sm:absolute sm:inset-0">
                 <div>
                   <h3 className="font-semibold text-white">
-                    <a href="#">
+                    <Link to="/allproducts">
                       <span className="absolute inset-0" />
                       Workspace
-                    </a>
+                    </Link>
                   </h3>
                   <p aria-hidden="true" className="mt-1 text-sm text-white">
                     Shop now
@@ -91,12 +93,12 @@ const CategoryPreview = () => {
           </div>
 
           <div className="mt-6 sm:hidden">
-            <a
-              href="#"
+            <Link
+              to="/allproducts"
               className="block text-sm font-semibold text-indigo-600 hover:text-indigo-500"
             >
               Browse all categories<span aria-hidden="true"> &rarr;</span>
-            </a>
+            </Link>
           </div>
         </div>
       </div>

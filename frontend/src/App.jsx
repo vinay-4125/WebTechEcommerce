@@ -12,19 +12,21 @@ import Products from "./components/AdminPage/Products/Products";
 import Settings from "./components/AdminPage/Settings";
 import AddProductForm from "./components/AdminPage/Products/AddProductForm";
 import LandingBody from "./components/LandingPage/LandingBody";
+import AllProducts from "./components/LandingPage/AllProducts";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
       <Route path="/" element={<LandingPage />}>
         <Route index element={<LandingBody />} />
+        <Route path="/allproducts" element={<AllProducts />} />
       </Route>
 
       <Route path="/admin" element={<AdminLayout />}>
         <Route index element={<DashboardBody />} />
         <Route path="products" element={<Products />} />
         <Route path="products/new" element={<AddProductForm />} />
-        {/* <Route path="products/new" element={<AddFormtwo />} /> */}
+
         <Route path="settings" element={<Settings />} />
       </Route>
 
