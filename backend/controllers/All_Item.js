@@ -35,9 +35,9 @@ export const deleteProduct = async (req, res) => {
 export const updateProduct = async (req, res) => {
     try {
         const { id } = req.params;
-        const { name, price, color, size, image } = req.body;
+        const { name, price, color, size, image , category, brand } = req.body;
 
-        const updatedProduct = await Products.findByIdAndUpdate(id, { name, price, color, size, image }, { new: true });
+        const updatedProduct = await Products.findByIdAndUpdate(id, { name, price, color, size, image , category, brand }, { new: true });
 
         if (!updatedProduct) {
             return res.status(404).json({ message: 'Product not found' });
@@ -52,9 +52,9 @@ export const updateProduct = async (req, res) => {
 
 export const addProduct = async (req, res) => {
     try {
-        const { name, price, color, size, image } = req.body;
+        const { name, price, color, size, image , category, brand } = req.body;
 
-        const newProduct = new Products({ name, price, color, size, image });
+        const newProduct = new Products({ name, price, color, size, image , category, brand });
         await newProduct.save();
 
         res.status(201).json(newProduct);
