@@ -5,8 +5,10 @@ import ProductList from "./ProductList";
 const LandingBody = () => {
   return (
     <>
-      <CategoryPreview />
-      <ProductList />
+      <div className="bg-gray-50 h-screen">
+        <CategoryPreview />
+        <ProductList />
+      </div>
     </>
   );
 };
