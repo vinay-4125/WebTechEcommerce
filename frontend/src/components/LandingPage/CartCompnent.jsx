@@ -168,8 +168,8 @@ const CartCompnent = () => {
         <SheetContent>
           <SheetHeader>
             <SheetTitle>Shopping Cart</SheetTitle>
-            <SheetDescription className="flex flex-col justify-between">
-              <div className="mt-8 flex flex-col  bg-white overflow-y-scroll h-[600px]">
+            <SheetDescription className="flex flex-col justify-between h-1/3">
+              <div className="mt-8 flex flex-col bg-white overflow-y-scroll h-[28gvw]">
                 <div className="flow-root">
                   <ul role="list" className="-my-6 divide-y divide-gray-200">
                     {products.map((product) => (
