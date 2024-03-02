@@ -1,8 +1,8 @@
 # WebTechEcommerce
-(updated as of now deployed project is working 99% of the time so please feel free to checkout live link here)
+(updated deployed site iw working but still in case if issue persist refer our video as *proof of work*
 - ### https://web-tech-ecommerce-akfmzjs1p-tanmay-jadavs-projects.vercel.app/
 
-still for reference feel free to visit working video in case above link gives some issue
+ feel free to visit working video in case above link gives some issue
 - https://drive.google.com/file/d/1xrj-BxTOxvC9nisUOO_Pq7N-ZKAKOar9/view?ts=65e31ed8&pli=1
 
 ## Description
