@@ -13,13 +13,17 @@ import Settings from "./components/AdminPage/Settings";
 import AddProductForm from "./components/AdminPage/Products/AddProductForm";
 import LandingBody from "./components/LandingPage/LandingBody";
 import AllProducts from "./components/LandingPage/AllProducts";
+import SingleProduct from "./components/LandingPage/SingleProduct";
+import Checkout from "./components/LandingPage/Checkout";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
       <Route path="/" element={<LandingPage />}>
         <Route index element={<LandingBody />} />
-        <Route path="/allproducts" element={<AllProducts />} />
+        <Route path="allproducts" element={<AllProducts />} />
+        <Route path="product/:id" element={<SingleProduct />} />
+        <Route path="checkout" element={<Checkout />} />
       </Route>
 
       <Route path="/admin" element={<AdminLayout />}>

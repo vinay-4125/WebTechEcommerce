@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Sheet,
   SheetContent,
@@ -9,44 +9,37 @@ import {
 } from "../ui/sheet";
 import { ShoppingCart } from "lucide-react";
 import { Button } from "../ui/button";
-import { useSelector } from "react-redux";
-
-const products = [
-  {
-    id: 1,
-    name: "Throwback Hip Bag",
-    href: "#",
-    color: "Salmon",
-    price: "$90.00",
-    quantity: 1,
-    imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg",
-    imageAlt:
-      "Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt.",
-  },
-  {
-    id: 2,
-    name: "Medium Stuff Satchel",
-    href: "#",
-    color: "Blue",
-    price: "$32.00",
-    quantity: 1,
-    imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-02.jpg",
-    imageAlt:
-      "Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch.",
-  },
-];
+import { useDispatch, useSelector } from "react-redux";
+import {
+  addToCart,
+  decreaseCart,
+  getTotals,
+  removeFromCart,
+} from "@/slice/cartSlice";
+import { Badge } from "../ui/badge";
+import { useNavigate } from "react-router-dom";
 
 const CartCompnent = () => {
-  const [open, setOpen] = useState(true);
-  const cart = useSelector((state) => state.cartItems);
-  console.log(cart);
+  const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
+  const cart = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getTotals(cart));
+  }, [cart]);
+
   return (
     <>
-      <Sheet>
+      <Sheet open={open} onOpenChange={setOpen}>
         <SheetTrigger>
-          <ShoppingCart />
+          <div className="flex">
+            <ShoppingCart size={30} />
+            {cart.cartTotalQuantity === 0 ? null : (
+              <Badge className="h-7 w-7 ml-1 text-center flex justify-center rounded-full">
+                {cart.cartTotalQuantity}
+              </Badge>
+            )}
+          </div>
         </SheetTrigger>
         <SheetContent>
           <SheetHeader>
@@ -55,90 +48,95 @@ const CartCompnent = () => {
               <div className="mt-8 flex flex-col  justify-between bg-white overflow-y-scroll h-[60vh]">
                 <div className="flow-root">
                   <ul role="list" className="-my-6 divide-y divide-gray-200">
-                    {products.map((product) => (
-                      <li key={product.id} className="py-6 flex">
-                        <div className="flex-shrink-0 w-24 h-24 border border-gray-200 rounded-md overflow-hidden">
-                          <img
-                            src={product.imageSrc}
-                            alt={product.imageAlt}
-                            className="w-full h-full object-center object-cover"
-                          />
-                        </div>
-
-                        <div className="ml-4 flex-1 flex flex-col">
-                          <div>
-                            <div className="flex justify-between text-base font-medium text-gray-900">
-                              <h3>
-                                <a href={product.href}>{product.name}</a>
-                              </h3>
-                              <p className="ml-4">{product.price}</p>
-                            </div>
-                            <p className="mt-1 text-sm text-gray-500">
-                              {product.color}
-                            </p>
+                    {cart.cartItems &&
+                      cart.cartItems.map((product) => (
+                        <li key={product.id} className="py-6 flex">
+                          <div className="flex-shrink-0 w-24 h-24 border border-gray-200 rounded-md overflow-hidden">
+                            <img
+                              src={product.image[0]}
+                              alt={product.imageAlt}
+                              className="w-full h-full object-center object-cover"
+                            />
                           </div>
-                          <div className="flex-1 flex items-end justify-between text-sm">
-                            <div className="flex flex-1 items-end justify-between text-sm">
-                              {/* <p className="text-gray-500">
+
+                          <div className="ml-4 flex-1 flex flex-col">
+                            <div>
+                              <div className="flex justify-between text-base font-medium text-gray-900">
+                                <h3>
+                                  <a href={product.href}>{product.name}</a>
+                                </h3>
+                                <p className="ml-4">₹{product.price}</p>
+                              </div>
+                              <p className="mt-1 text-sm text-gray-500">
+                                {product.color}
+                              </p>
+                            </div>
+                            <div className="flex-1 flex items-end justify-between text-sm">
+                              <div className="flex flex-1 items-end justify-between text-sm">
+                                {/* <p className="text-gray-500">
                                         Qty {cartItem.cartQuantity}
                                       </p> */}
-                              <div className="flex items-start justify-center w-24 max-w-fit rounded">
-                                <button
-                                  //   onClick={() => handleDecreaseCart(cartItem)}
-                                  className="border rounded-md bg-slate-200 hover:bg-slate-100"
-                                >
-                                  <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    className="h-6 w-6"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke="currentColor"
-                                    strokeWidth="1"
+                                <div className="flex gap-5 py-1 items-start justify-center w-24 max-w-fit rounded">
+                                  <button
+                                    onClick={() =>
+                                      dispatch(decreaseCart(product))
+                                    }
+                                    className="border rounded-md bg-slate-200 hover:bg-slate-100"
                                   >
-                                    <path
-                                      strokeLinecap="round"
-                                      strokeLinejoin="round"
-                                      d="M18 12H6"
-                                    />
-                                  </svg>
-                                </button>
-                                <p className="text-gray-500">
-                                  {product.quantity}
-                                </p>
-                                <button
-                                  //   onClick={() => handleIncreaseCart(cartItem)}
-                                  className="border rounded-md bg-slate-200 hover:bg-slate-100"
-                                >
-                                  <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    className="h-6 w-6"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke="currentColor"
-                                    strokeWidth="1"
+                                    <svg
+                                      xmlns="http://www.w3.org/2000/svg"
+                                      className="h-6 w-6"
+                                      fill="none"
+                                      viewBox="0 0 24 24"
+                                      stroke="currentColor"
+                                      strokeWidth="1"
+                                    >
+                                      <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        d="M18 12H6"
+                                      />
+                                    </svg>
+                                  </button>
+                                  <p className="text-gray-500 text-lg">
+                                    {product.cartQuantity}
+                                  </p>
+                                  <button
+                                    onClick={() => dispatch(addToCart(product))}
+                                    className="border rounded-md bg-slate-200 hover:bg-slate-100"
                                   >
-                                    <path
-                                      strokeLinecap="round"
-                                      strokeLinejoin="round"
-                                      d="M12 6v6m0 0v6m0-6h6m-6 0H6"
-                                    />
-                                  </svg>
+                                    <svg
+                                      xmlns="http://www.w3.org/2000/svg"
+                                      className="h-6 w-6"
+                                      fill="none"
+                                      viewBox="0 0 24 24"
+                                      stroke="currentColor"
+                                      strokeWidth="1"
+                                    >
+                                      <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                                      />
+                                    </svg>
+                                  </button>
+                                </div>
+                              </div>
+                              <div className="flex">
+                                <button
+                                  type="button"
+                                  className="-mt-10 font-medium text-indigo-600 hover:text-indigo-500"
+                                  onClick={() =>
+                                    dispatch(removeFromCart(product))
+                                  }
+                                >
+                                  Remove
                                 </button>
                               </div>
                             </div>
-                            <div className="flex">
-                              <button
-                                type="button"
-                                className="font-medium text-indigo-600 hover:text-indigo-500"
-                                // onClick={() => handleRemoveFromCart(cartItem)}
-                              >
-                                Remove
-                              </button>
-                            </div>
                           </div>
-                        </div>
-                      </li>
-                    ))}
+                        </li>
+                      ))}
                   </ul>
                 </div>
               </div>
@@ -146,13 +144,21 @@ const CartCompnent = () => {
               <div className="border-t border-gray-200 py-6 px-4 sm:px-6">
                 <div className="flex justify-between text-base font-medium text-gray-900">
                   <p>Subtotal</p>
-                  <p>$262.00</p>
+                  <p>₹{cart.cartTotalAmount}</p>
                 </div>
                 <p className="mt-0.5 text-sm text-gray-500">
                   Shipping and taxes calculated at checkout.
                 </p>
                 <div className="mt-6">
-                  <Button className="w-full">Checkout</Button>
+                  <Button
+                    className="w-full"
+                    onClick={() => {
+                      navigate("/checkout");
+                      setOpen(false);
+                    }}
+                  >
+                    Checkout
+                  </Button>
                 </div>
                 <div className="mt-6 flex justify-center text-sm text-center text-gray-500">
                   <p>

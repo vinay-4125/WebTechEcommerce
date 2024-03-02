@@ -7,23 +7,38 @@ import { Plus } from "lucide-react";
 import { Link } from "react-router-dom";
 import ProductTable from "./ProductTable";
 import ProductAction from "./ProductAction";
+import axios from "axios";
+import { useQuery } from "@tanstack/react-query";
 
 const Products = () => {
   const breadcrumbItems = [{ title: "Products", link: "/admin/products" }];
-  const data = [{ abc: "hello" }];
+
+  const fetchAllProducts = async () => {
+    const res = await axios.get("/api/getProducts");
+    return res.data;
+  };
+
+  const { data: product } = useQuery({
+    queryKey: ["adminAllProducts"],
+    queryFn: fetchAllProducts,
+  });
 
   const productColumn = [
-    {
-      header: "Product Image",
-      accessorKey: "productImage",
-    },
     {
       header: "Product Name",
       accessorKey: "name",
     },
     {
-      header: "Product Price",
+      header: "Product Price(₹)",
       accessorKey: "price",
+    },
+    {
+      header: "Product Category",
+      accessorKey: "category",
+    },
+    {
+      header: "Product Color",
+      accessorKey: "color",
     },
     {
       id: "actions",
@@ -39,7 +54,7 @@ const Products = () => {
 
         <div className="flex items-start justify-between">
           <Heading
-            title={`Products ${data?.length}`}
+            title={`Products ${product?.length}`}
             description="Manage products"
           />
 
@@ -51,7 +66,7 @@ const Products = () => {
           </Link>
         </div>
         <Separator />
-        {data && <ProductTable data={data} columns={productColumn} />}
+        {product && <ProductTable data={product} columns={productColumn} />}
       </div>
     </div>
   );

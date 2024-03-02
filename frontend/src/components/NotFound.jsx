@@ -20,7 +20,7 @@ const NotFound = () => {
           Go back
         </Button>
         <Button
-          onClick={() => navigate("/dashboard")}
+          onClick={() => navigate("/")}
           variant="ghost"
           size="lg"
         >
