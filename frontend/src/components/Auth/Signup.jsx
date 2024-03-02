@@ -23,7 +23,7 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("/api/abcxyz/signup", formData);
+      const res = await axios.post("https://webtechecommerce-fky6.onrender.com/api/abcxyz/signup", formData);
       const data = res.data;
       dispatch(setUserLocalStorage(data));
 
