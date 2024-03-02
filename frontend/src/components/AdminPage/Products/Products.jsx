@@ -14,7 +14,7 @@ const Products = () => {
   const breadcrumbItems = [{ title: "Products", link: "/admin/products" }];
 
   const fetchAllProducts = async () => {
-    const res = await axios.get("/api/getProducts");
+    const res = await axios.get("https://webtechecommerce-fky6.onrender.com/api/getProducts");
     return res.data;
   };
 
