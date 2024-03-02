@@ -41,7 +41,7 @@ const SingleProduct = () => {
   console.log(id);
 
   const fetchSingleProduct = async () => {
-    const res = await axios.get(`/api/product/${id}`);
+    const res = await axios.get(`https://webtechecommerce-fky6.onrender.com/api/product/${id}`);
     return res.data;
   };
 
