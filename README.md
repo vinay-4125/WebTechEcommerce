@@ -25,7 +25,7 @@ WebTechEcommerce is a full-stack e-commerce web application built using React.js
 	- cart where each product seen
 	- checkout page (static payment gateway yet to be done left due to time constrain)
 - Admin page created 
-	- dashboard for admin is on "/admin" (currently no body static)
+	- dashboard for admin is on "/admin" (left due to time constrain work in progress)
 	- All products page which is linked to database
 	- Add product page where images can also be uploaded
 	- Edit product details page
