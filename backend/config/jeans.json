@@ -4,11 +4,11 @@
 		"category": "jeans",
 		"price": 2299,
 		"brand": "zara",
+		"relevance":2,
 		"color": "Denim blue",
 		"size": [
 			"XL",
 			"L",
-			"M",
 			"S"
 		],
 		"image": [
@@ -26,11 +26,11 @@
 		"price": 2299,
 		"category": "jeans",
 		"brand": "zudio",
+		"relevance":2,
 		"color": "Light denim blue",
 		"size": [
 			"XL",
 			"L",
-			"M",
 			"S"
 		],
 		"image": [
@@ -47,6 +47,7 @@
 		"price": 2699,
 		"category": "jeans",
 		"brand": "H&M",
+		"relevance":2,
 		"color": "Black",
 		"size": [
 			"XL",
@@ -69,6 +70,7 @@
 		"price": 2699,
 		"category": "jeans",
 		"brand": "H&M",
+		"relevance":2,
 		"color": "Blue",
 		"size": [
 			"XL",
@@ -86,6 +88,7 @@
 		"price": 1799,
 		"category": "jeans",
 		"brand": "zudio",
+		"relevance":2,
 		"color": "Dark blue",
 		"size": [
 			"XL",
@@ -107,6 +110,7 @@
 		"price": 1799,
 		"category": "jeans",
 		"brand": "zara",
+		"relevance":2,
 		"color": "Pale denim blue",
 		"size": [
 			"XL",
@@ -124,6 +128,7 @@
 		"price": 2699,
 		"category": "jeans",
 		"brand": "zudio",
+		"relevance":2,
 		"color": "Denim blue",
 		"size": [
 			"XL",
@@ -147,6 +152,7 @@
 		"price": 1999,
 		"category": "jeans",
 		"brand": "H&M",
+		"relevance":2,
 		"color": "Light Denim Blue",
 		"size": [
 			"XL",
@@ -168,6 +174,7 @@
 		"price": 1799,
 		"category": "jeans",
 		"brand": "zara",
+		"relevance":2,
 		"color": "Dark Blue",
 		"size": [
 			"XL",
@@ -189,6 +196,7 @@
 		"price": 2699,
 		"category": "jeans",
 		"brand": "zudio",
+		"relevance":2,
 		"color": "Denim Blue",
 		"size": [
 			"XL",
@@ -211,6 +219,7 @@
 		"price": 799,
 		"category": "t-shirts",
 		"brand": "zudio",
+		"relevance":2,
 		"color": "blue",
 		"size": [
 			"XL",
@@ -229,6 +238,7 @@
 		"price": 699,
 		"category": "t-shirts",
 		"brand": "zara",
+		"relevance":2,
 		"color": "Black",
 		"size": [
 			"XL",
@@ -247,6 +257,7 @@
 		"price": 799,
 		"category": "t-shirts",
 		"brand": "H&M",
+		"relevance":2,
 		"color": "White",
 		"size": [
 			"XL",
@@ -264,6 +275,7 @@
 		"price": 799,
 		"category": "t-shirts",
 		"brand": "zara",
+		"relevance":2,
 		"color": "Light beige",
 		"size": [
 			"XL",
@@ -285,6 +297,7 @@
 		"price": 2299,
 		"category": "t-shirts",
 		"brand": "zudio",
+		"relevance":2,
 		"color": "Navy blue/Striped",
 		"size": [
 			"XL",
@@ -305,6 +318,7 @@
 		"price": 2299,
 		"category": "t-shirts",
 		"brand": "zara",
+		"relevance":2,
 		"color": "Cream",
 		"size": [
 			"XL",
@@ -327,6 +341,7 @@
 		"price": 799,
 		"category": "t-shirts",
 		"brand": "H&M",
+		"relevance":2,
 		"color": "Brown",
 		"size": [
 			"XL",
@@ -345,6 +360,7 @@
 		"price": 799,
 		"category": "t-shirts",
 		"brand": "zudio",
+		"relevance":2,
 		"color": "Dark green",
 		"size": [
 			"XL",
@@ -365,6 +381,7 @@
 		"price": 2299,
 		"category": "t-shirts",
 		"brand": "zara",
+		"relevance":2,
 		"color": "Black/Striped",
 		"size": [
 			"XL",
@@ -386,6 +403,7 @@
 		"price": 399,
 		"category": "t-shirts",
 		"brand": "zudio",
+		"relevance":2,
 		"color": "Black/Striped",
 		"size": [
 			"XL",
@@ -407,6 +425,7 @@
 		"price": 1499,
 		"category": "hoddies",
 		"brand": "H&M",
+		"relevance":2,
 		"color": "black",
 		"size": [
 			"XL",
@@ -427,6 +446,7 @@
 		"price": 1499,
 		"category": "hoddies",
 		"brand": "zara",
+		"relevance":2,
 		"color": "Navy Blue",
 		"size": [
 			"XL",
@@ -448,6 +468,7 @@
 		"price": 2299,
 		"category": "hoddies",
 		"brand": "H&M",
+		"relevance":2,
 		"color": "Cream",
 		"size": [
 			"XL",
@@ -468,6 +489,7 @@
 		"price": 2999,
 		"category": "hoddies",
 		"brand": "zudio",
+		"relevance":2,
 		"color": "Blue/Metallica",
 		"size": [
 			"XL",
@@ -490,6 +512,7 @@
 		"price": 1499,
 		"category": "hoddies",
 		"brand": "zara",
+		"relevance":2,
 		"color": "Brown",
 		"size": [
 			"XL",
@@ -512,6 +535,7 @@
 		"price": 2299,
 		"category": "hoddies",
 		"brand": "H&M",
+		"relevance":2,
 		"color": "Black/Led Zeppelin",
 		"size": [
 			"XL",
@@ -534,6 +558,7 @@
 		"price": 1499,
 		"category": "hoddies",
 		"brand": "zudio",
+		"relevance":2,
 		"color": "Dark Brown",
 		"size": [
 			"XL",
@@ -556,6 +581,7 @@
 		"price": 1499,
 		"category": "hoddies",
 		"brand": "zara",
+		"relevance":2,
 		"color": "Pink",
 		"size": [
 			"XL",
@@ -578,6 +604,7 @@
 		"price": 2299,
 		"category": "hoddies",
 		"brand": "zara",
+		"relevance":2,
 		"color": "Greige/Starry sky",
 		"size": [
 			"XL",
@@ -599,6 +626,7 @@
 		"price": 1499,
 		"category": "hoddies",
 		"brand": "zudio",
+		"relevance":2,
 		"color": "Light beige",
 		"size": [
 			"XL",

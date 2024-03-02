@@ -15,6 +15,8 @@ import LandingBody from "./components/LandingPage/LandingBody";
 import AllProducts from "./components/LandingPage/AllProducts";
 import SingleProduct from "./components/LandingPage/SingleProduct";
 import Checkout from "./components/LandingPage/Checkout";
+import Login from "./components/Auth/Login";
+import Signup from "./components/Auth/Signup";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -28,6 +30,8 @@ const router = createBrowserRouter(
 
       <Route path="/admin" element={<AdminLayout />}>
         <Route index element={<DashboardBody />} />
+        <Route path="login" element={<Login />} />
+        <Route path="signup" element={<Signup />} />
         <Route path="products" element={<Products />} />
         <Route path="products/new" element={<AddProductForm />} />
 

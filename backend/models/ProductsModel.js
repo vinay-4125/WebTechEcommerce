@@ -15,11 +15,15 @@ const ProductSchema = new mongoose.Schema({
   },
   brand:{
     type:String,
-    required:true,
+    required:false,
   },
   color:{
     type:String,
     required:true,
+  },
+  relevance:{
+    type:String,
+    required:false,
   },
   size:{
     type:[String],
