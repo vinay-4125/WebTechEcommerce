@@ -17,10 +17,11 @@ import { Toaster, toast } from "sonner";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
+import { useLocation } from "react-router-dom";
 
 const breadcrumbItems = [
   { title: "Product", link: "/admin/products" },
-  { title: "Add", link: "/admin/products/new" },
+  { title: "Edit", link: `/admin/products/:id` },
 ];
 
 const sizeCheckboxList = ["XL", "L", "M", "S"];
@@ -36,15 +37,17 @@ const formSchema = yup.object({
   category: yup.string().required(),
 });
 
-const AddProductForm = () => {
+const ProductEdit = () => {
+  const { state } = useLocation();
+
   const form = useForm({
     defaultValues: {
-      name: "",
-      price: 0,
-      color: "",
-      size: "",
-      brand: "",
-      category: "",
+      name: state?.name,
+      price: state?.price,
+      color: state?.color,
+      size: state?.size,
+      brand: state?.brand,
+      category: state?.category,
     },
     mode: "all",
     resolver: yupResolver(formSchema),
@@ -59,7 +62,7 @@ const AddProductForm = () => {
 
   const onSubmit = async (data) => {
     try {
-      await axios.post("/api/addProduct", data);
+      await axios.put(`/api/product/${state._id}`, data);
       toast.success("Product added");
     } catch (error) {
       console.log(error);
@@ -72,7 +75,7 @@ const AddProductForm = () => {
       <BreadCrumb items={breadcrumbItems} />
 
       <div className="flex items-start justify-between">
-        <Heading title={`Add Product`} description={""} />
+        <Heading title={`Edit Product`} description={""} />
       </div>
       <Separator />
 
@@ -254,7 +257,7 @@ const AddProductForm = () => {
             />
           </div>
 
-          <Button type="submit">Submit</Button>
+          <Button type="submit">Update</Button>
         </form>
       </Form>
       <pre>{JSON.stringify(form.watch(), null, 2)}</pre>
@@ -263,4 +266,4 @@ const AddProductForm = () => {
   );
 };
 
-export default AddProductForm;
+export default ProductEdit;

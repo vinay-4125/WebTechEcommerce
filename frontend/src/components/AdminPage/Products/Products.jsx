@@ -6,9 +6,9 @@ import { cn } from "@/lib/utils";
 import { Plus } from "lucide-react";
 import { Link } from "react-router-dom";
 import ProductTable from "./ProductTable";
-import ProductAction from "./ProductAction";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
+import ProductAction from "./ProductAction";
 
 const Products = () => {
   const breadcrumbItems = [{ title: "Products", link: "/admin/products" }];
