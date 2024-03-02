@@ -32,16 +32,20 @@ const formSchema = yup.object({
   price: yup.number().required("price is required").positive().integer(),
   color: yup.string().required(),
   size: yup.array().required(),
+  brand: yup.array().required(),
+  category: yup.array().required(),
 });
 
 const AddProductForm = () => {
   const form = useForm({
     defaultValues: {
-      imgUrl: [],
+      images: [],
       name: "",
       price: 0,
       color: "",
       size: "",
+      brand: "",
+      category: "",
     },
     mode: "all",
     resolver: yupResolver(formSchema),
@@ -49,7 +53,7 @@ const AddProductForm = () => {
 
   const onSubmit = async (data) => {
     try {
-      await axios.post("/api/addmember", data);
+      await axios.post("/api/addProduct", data);
       toast.success("Member added");
     } catch (error) {
       console.log(error);
@@ -58,7 +62,7 @@ const AddProductForm = () => {
   };
 
   return (
-    <div className="flex-1 space-y-4 p-4 md:p-8 pt-6">
+    <div className="flex-1 space-y-4 p-4 md:p-8 pt-6 overflow-scroll h-screen">
       <BreadCrumb items={breadcrumbItems} />
 
       <div className="flex items-start justify-between">
@@ -125,6 +129,41 @@ const AddProductForm = () => {
               )}
             />
           </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <FormField
+              control={form.control}
+              name="name"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="flex justify-start items-center">
+                    Category
+                  </FormLabel>
+                  <FormControl>
+                    <Input
+                      placeholder="Eg - Shirts, jeans, Hoodies... "
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormMessage className="flex justify-start items-center " />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="name"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="flex justify-start items-center">
+                    Brand Name
+                  </FormLabel>
+                  <FormControl>
+                    <Input placeholder="Eg - Zara, Zudio, H&M..." {...field} />
+                  </FormControl>
+                  <FormMessage className="flex justify-start items-center " />
+                </FormItem>
+              )}
+            />
+          </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <FormField
@@ -169,6 +208,57 @@ const AddProductForm = () => {
                       ))}
                     </ToggleGroup>
                   </FormControl>
+                  <FormMessage className="flex justify-start items-center " />
+                </FormItem>
+              )}
+            />
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <FormField
+              control={form.control}
+              name="images"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="flex justify-start items-center">
+                    Images
+                  </FormLabel>
+                  <FormControl>
+                    <Input
+                      type="file"
+                      accept="image/*"
+                      multiple // Allow multiple file selection
+                      onChange={(e) => {
+                        const files = Array.from(e.target.files);
+                        field.onChange(files);
+                      }}
+                    />
+                  </FormControl>
+                  {/* Display uploaded images */}
+                  <div className="mt-2 flex flex-wrap gap-3">
+                    {Array.isArray(field.value) &&
+                      field.value.map((file, index) => (
+                        <div key={index} className="relative mt-1 border-1 h-20">
+                          <img
+                            src={URL.createObjectURL(file)} // Display image preview
+                            alt={`Uploaded image ${index + 1}`}
+                            className="max-w-20 h-13"
+                          />
+                          {/* Cancel button to remove the image */}
+                          <button
+                            type="button"
+                            onClick={() => {
+                              const updatedFiles = field.value.filter(
+                                (_, i) => i !== index
+                              );
+                              field.onChange(updatedFiles);
+                            }}
+                            className="absolute top-[-8px] right-[-8px] h-5 w-5 bg-background/50 border-red-600 border-2 text-red-500 rounded-full flex items-center justify-center text-xs opacity-[60%]"
+                          >
+                            X
+                          </button>
+                        </div>
+                      ))}
+                  </div>{" "}
                   <FormMessage className="flex justify-start items-center " />
                 </FormItem>
               )}
