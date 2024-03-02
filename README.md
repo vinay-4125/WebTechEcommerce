@@ -11,6 +11,7 @@ WebTechEcommerce is a full-stack e-commerce web application built using React.js
 - Filter product based on category, brand and size
 - Update cart quantities or remove items
 - Admin panel for managing products, orders, and users
+- light and dark mode 
 
 ## Page Details
 - Pages Created
