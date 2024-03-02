@@ -19,10 +19,10 @@ const AllProducts = () => {
       <div className="flex">
         <nav
           className={cn(
-            `relative hidden h-screen border-r pt-16 lg:block w-72`
+            `relative hidden border-r pt-16 lg:block w-72 sm:sticky`
           )}
         >
-          <div className="space-y-4 py-4">
+          <div className="space-y-4 py-4 fixed">
             <div className="px-3 py-2">
               <div className="space-y-1">
                 <h2 className="mb-2 px-4 text-xl font-semibold tracking-tight">
