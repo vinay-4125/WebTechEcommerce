@@ -22,9 +22,26 @@ import {
 } from "@/components/ui/alert-dialog";
 import { Toaster } from "@/components/ui/sonner";
 import axios from "axios";
+import { useQueryClient } from "@tanstack/react-query";
 
 const ProductAction = ({ data }) => {
   const [showDeleteDialog, setShowDeleteDialog] = useState(false);
+  const queryClient = useQueryClient();
+
+  const handleDeleteProduct = async () => {
+    console.log(data);
+    try {
+      const res = await axios.delete(`/api/product/${data._id}`, {
+        params: { id: data._id },
+      });
+      await queryClient.invalidateQueries({
+        queryKey: ["adminAllProducts"],
+        refetchType: "active",
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <>
@@ -44,7 +61,7 @@ const ProductAction = ({ data }) => {
         <DropdownMenuContent align="end">
           <DropdownMenuLabel>Actions</DropdownMenuLabel>
 
-          <Link to={`/dashboard/update/${data._id}`} state={data}>
+          <Link to={`/admin/update/${data._id}`} state={data}>
             <DropdownMenuItem>
               <Edit className="mr-2 h-4 w-4" /> Edit
             </DropdownMenuItem>
@@ -71,7 +88,7 @@ const ProductAction = ({ data }) => {
             <AlertDialogCancel>Cancel</AlertDialogCancel>
             <AlertDialogAction
               className="bg-destructive text-white hover:bg-destructive/80"
-            //   onClick={() => handleDeleteMember(data)}
+              onClick={() => handleDeleteProduct(data)}
             >
               Continue
             </AlertDialogAction>

@@ -15,8 +15,12 @@ import LandingBody from "./components/LandingPage/LandingBody";
 import AllProducts from "./components/LandingPage/AllProducts";
 import SingleProduct from "./components/LandingPage/SingleProduct";
 import Checkout from "./components/LandingPage/Checkout";
+<<<<<<< HEAD
 import Login from "./components/Auth/Login";
 import Signup from "./components/Auth/Signup";
+=======
+import ProductEdit from "./components/AdminPage/Products/ProductEdit";
+>>>>>>> 225bf2a27e2d36ccdec52f25a6fd5d88cf8cc676
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -34,7 +38,7 @@ const router = createBrowserRouter(
         <Route path="signup" element={<Signup />} />
         <Route path="products" element={<Products />} />
         <Route path="products/new" element={<AddProductForm />} />
-
+        <Route path="update/:id" element={<ProductEdit />} />
         <Route path="settings" element={<Settings />} />
       </Route>
 
