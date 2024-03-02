@@ -62,7 +62,7 @@ const ProductEdit = () => {
 
   const onSubmit = async (data) => {
     try {
-      await axios.put(`/api/product/${state._id}`, data);
+      await axios.put(`https://webtechecommerce-fky6.onrender.com/api/product/${state._id}`, data);
       toast.success("Product added");
     } catch (error) {
       console.log(error);

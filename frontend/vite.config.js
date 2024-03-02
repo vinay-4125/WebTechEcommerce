@@ -14,8 +14,8 @@ export default defineConfig({
     port: 5000,
     host: "127.0.0.1",
     proxy: {
-      // "/api": "http://localhost:8000/",
-      "/api": "https://webtechecommerce-fky6.onrender.com/",
+
+      "/api": "https://webtechecommerce-fky6.onrender.com",
 
     },
   },

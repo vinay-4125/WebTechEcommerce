@@ -31,7 +31,7 @@ const ProductAction = ({ data }) => {
   const handleDeleteProduct = async () => {
     console.log(data);
     try {
-      const res = await axios.delete(`/api/product/${data._id}`, {
+      const res = await axios.delete(`https://webtechecommerce-fky6.onrender.com/api/product/${data._id}`, {
         params: { id: data._id },
       });
       await queryClient.invalidateQueries({

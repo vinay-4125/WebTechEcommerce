@@ -5,7 +5,7 @@ import ProductList from "./ProductList";
 
 const AllProducts = () => {
   const fetchAllProducts = async () => {
-    const res = await axios.get("/api/getProducts");
+    const res = await axios.get("https://webtechecommerce-fky6.onrender.com/api/getProducts");
     return res.data;
   };
 

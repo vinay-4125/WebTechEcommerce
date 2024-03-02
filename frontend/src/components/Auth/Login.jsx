@@ -21,7 +21,7 @@ const Login = () => {
     e.preventDefault();
     try {
         console.log(formData)
-      const res = await axios.post("/api/abcxyz/login", formData);
+      const res = await axios.post("https://webtechecommerce-fky6.onrender.com/api/abcxyz/login", formData);
       const data = await res.data;
       dispatch(setUserLocalStorage(data));
       // console.log("data", data);
