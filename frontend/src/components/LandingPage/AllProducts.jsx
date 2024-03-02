@@ -17,7 +17,7 @@ const AllProducts = () => {
   return (
     <>
       <div className="flex">
-        <nav
+        {/* <nav
           className={cn(
             `relative hidden border-r pt-16 lg:block w-72 sm:sticky`
           )}
@@ -31,8 +31,8 @@ const AllProducts = () => {
               </div>
             </div>
           </div>
-        </nav>
-        <div className="w-full  overflow-y-auto md:overflow-hidden">
+        </nav> */}
+        <div className="w-full mx-auto px-10 overflow-y-auto md:overflow-hidden">
           {products && (
             <ProductList products={products} text="All Categories" />
           )}
