@@ -1,5 +1,5 @@
 # WebTechEcommerce
-(updated deployed site iw working but still in case if issue persist refer our video as *proof of work*
+(updated deployed site iw working but still in case if issue persist refer our video as "*proof of work*")
 - ### https://web-tech-ecommerce-akfmzjs1p-tanmay-jadavs-projects.vercel.app/
 
  feel free to visit working video in case above link gives some issue
