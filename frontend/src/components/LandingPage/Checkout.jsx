@@ -5,6 +5,42 @@ import { Input } from "../ui/input";
 const Checkout = () => {
   const cart = useSelector((state) => state.cart);
   const finalAmount = cart.cartTotalAmount + 350;
+  const checkoutHandler = async (amount) => {
+    const {
+      data: { key },
+    } = await axios.get("http://localhost:8000/api/payment/getkey");
+
+    const {
+      data: { order },
+    } = await axios.post("http://localhost:8000/api/payment/checkout", {
+      amount,
+    });
+    const options = {
+      key,
+      amount: order.amount,
+      currency: "INR",
+      name: "Buy object",
+      description: "Test Transaction",
+      image:
+        "https://media.licdn.com/dms/image/D4D35AQF0CsVl9CNRvg/profile-framedphoto-shrink_400_400/0/1706197203992?e=1707814800&v=beta&t=FKX-WQ9k7pQ7Tx54mljOcvz51KVGdWFGFCknv3GmREs",
+      order_id: order.id, 
+      callback_url: "http://localhost:5000/",
+      prefill: {
+        name: "Gaurav Kumar",
+        email: "gaurav.kumar@example.com",
+        contact: "9000090000",
+      },
+      notes: {
+        address: "Razorpay Corporate Office",
+      },
+      theme: {
+        color: "#3399cc",
+      },
+    };
+    const razor = new window.Razorpay(options);
+    razor.open();
+  };
+
   return (
     <>
       <div className="bg-white">
@@ -292,7 +328,9 @@ const Checkout = () => {
                 </div>
 
                 <div className="mt-10 flex justify-end pt-6 border-t border-gray-200">
-                  <Button type="submit">Pay now</Button>
+                  <Button type="submit"
+                    onClick={checkoutHandler}
+                    >Pay now</Button>
                 </div>
               </div>
             </form>

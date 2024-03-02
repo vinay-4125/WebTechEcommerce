@@ -257,7 +257,7 @@ const AddProductForm = () => {
           <Button type="submit">Submit</Button>
         </form>
       </Form>
-      <pre>{JSON.stringify(form.watch(), null, 2)}</pre>
+      {/* <pre>{JSON.stringify(form.watch(), null, 2)}</pre> */}
       <Toaster position="bottom-left" />
     </div>
   );

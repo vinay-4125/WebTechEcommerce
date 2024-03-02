@@ -37,6 +37,7 @@ import { ToggleGroup, ToggleGroupItem } from "../ui/toggle-group";
 
 const SingleProduct = () => {
   const { id } = useParams();
+  const dispatch = useDispatch();
   console.log(id);
 
   const fetchSingleProduct = async () => {

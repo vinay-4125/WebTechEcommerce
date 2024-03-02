@@ -2,7 +2,6 @@ import { cn } from "@/lib/utils";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import ProductList from "./ProductList";
-import ThemeToggle from "../ThemeToggle";
 
 const AllProducts = () => {
   const fetchAllProducts = async () => {

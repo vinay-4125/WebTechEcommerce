@@ -1,16 +1,3 @@
-<<<<<<< HEAD
-import React from 'react'
-
-const ProductList = () => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
-
-export default ProductList
-=======
 import { useDispatch } from "react-redux";
 import { Button } from "../ui/button";
 import { addToCart } from "@/slice/cartSlice";
@@ -223,4 +210,3 @@ const ProductList = ({ products, text }) => {
 };
 
 export default ProductList;
->>>>>>> 225bf2a27e2d36ccdec52f25a6fd5d88cf8cc676
