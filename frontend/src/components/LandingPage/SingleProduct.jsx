@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { HeartIcon, MoveLeft } from "lucide-react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
 import { Button } from "../ui/button";
@@ -36,7 +36,6 @@ import { ToggleGroup, ToggleGroupItem } from "../ui/toggle-group";
 // };
 
 const SingleProduct = () => {
-  const dispatch = useDispatch();
   const { id } = useParams();
   console.log(id);
 
@@ -65,7 +64,7 @@ const SingleProduct = () => {
           <div className="lg:grid lg:grid-cols-2 lg:gap-x-8 lg:items-start">
             {/* Product image */}
             <div>
-              <Tabs defaultValue={product.image[0]} orientation="horizontal">
+              <Tabs defaultValue={product.image[0]}>
                 <TabsList className="bg-transparent">
                   {product &&
                     product.image.map((item, index) => (
@@ -81,7 +80,11 @@ const SingleProduct = () => {
                 {product &&
                   product.image.map((item, index) => (
                     <TabsContent key={index} value={item}>
-                      <img src={item} alt="product-name" />
+                      <img
+                        src={item}
+                        alt="product-name"
+                        className="rounded-md"
+                      />
                     </TabsContent>
                   ))}
               </Tabs>

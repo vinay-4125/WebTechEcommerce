@@ -15,6 +15,7 @@ import LandingBody from "./components/LandingPage/LandingBody";
 import AllProducts from "./components/LandingPage/AllProducts";
 import SingleProduct from "./components/LandingPage/SingleProduct";
 import Checkout from "./components/LandingPage/Checkout";
+import ProductEdit from "./components/AdminPage/Products/ProductEdit";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -30,7 +31,7 @@ const router = createBrowserRouter(
         <Route index element={<DashboardBody />} />
         <Route path="products" element={<Products />} />
         <Route path="products/new" element={<AddProductForm />} />
-
+        <Route path="update/:id" element={<ProductEdit />} />
         <Route path="settings" element={<Settings />} />
       </Route>
 

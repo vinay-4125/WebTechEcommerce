@@ -1,13 +1,13 @@
 const menuItems = [
   {
-    title: "Dashboard",
-    href: "/admin/",
-    icon: "dashboard",
-  },
-  {
     title: "Products",
     href: "/admin/products",
     icon: "shoppingcart",
+  },
+  {
+    title: "Add new product",
+    href: "/admin/products/new",
+    icon: "plus",
   },
   {
     title: "Settings",
