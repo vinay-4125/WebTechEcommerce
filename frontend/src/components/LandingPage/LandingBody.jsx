@@ -7,7 +7,7 @@ const LandingBody = () => {
     <>
       <div className="bg-gray-50 h-screen">
         <CategoryPreview />
-        <ProductList />
+        {/* <ProductList /> */}
       </div>
     </>
   );
