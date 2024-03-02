@@ -1,6 +1,10 @@
 # WebTechEcommerce
-Please Ignore The Issues in deployment kindly check repo and for "proof of work" reference please refer below video
-### https://drive.google.com/file/d/1xrj-BxTOxvC9nisUOO_Pq7N-ZKAKOar9/view?ts=65e31ed8&pli=1
+(updated as of now deployed project is working 99% of the time so please feel free to checkout live link here)
+- ### https://web-tech-ecommerce-akfmzjs1p-tanmay-jadavs-projects.vercel.app/
+
+still for reference feel free to visit working video in case above link gives some issue
+- https://drive.google.com/file/d/1xrj-BxTOxvC9nisUOO_Pq7N-ZKAKOar9/view?ts=65e31ed8&pli=1
+
 ## Description
 WebTechEcommerce is a full-stack e-commerce web application built using React.js, Node.js, Express.js, MongoDB, and other technologies. It allows users to browse products, add them to their cart, and make purchases securely.
 
