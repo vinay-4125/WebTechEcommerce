@@ -9,12 +9,11 @@
             "dest":"/"
         },
         {
-            "src":"/admin/*",
-            "dest":"/"
-        },
-        {
             "src":"*",
-            "dest":"/"
-        }
+            "dest":"*"
+        },
+    ],
+     "rewrites": [
+        {"source": "/(.*)", "destination": "/"}
     ]
 }
